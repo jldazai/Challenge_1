@@ -9,24 +9,29 @@ results = client.get('sdvb-4x4j', limit=1000000)
 
 df = pd.DataFrame.from_records(results)
 
-print(df)
+#print(df)
 
-print(df.isnull().sum().sum())
+#print(df.isnull().sum().sum())
 
-print(df.dtypes)
+#print(df.dtypes)
 
-print(df.isnull().any(1).to_numpy().nonzero())
+#print(df.isnull().any(1).to_numpy().nonzero())
 
-print(df.loc[2401].isnull())
+#print(df.loc[2401].isnull())
 
-df.fillna(method='bfill',limit=2, inplace=True)
+#df.fillna(method='bfill',limit=2, inplace=True)
 
-print(df.isnull().any(1).to_numpy().nonzero())
+#print(df.isnull().any(1).to_numpy().nonzero())
 
 convert_dic = {'cantidad':int}
 
 df = df.astype(convert_dic)
 
-print(df.dtypes)
+#print(df.dtypes)
 
-print(df[df['cantidad']>=10])
+print(df['laboratorio_vacuna'].unique())
+
+print(df['cantidad'][df['laboratorio_vacuna']=='PFIZER'].sum())
+
+def consulta1(lab):
+    return df['cantidad'][df['laboratorio_vacuna']==lab].sum()
