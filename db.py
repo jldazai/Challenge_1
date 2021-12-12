@@ -9,29 +9,38 @@ results = client.get('sdvb-4x4j', limit=1000000)
 
 df = pd.DataFrame.from_records(results)
 
-#print(df)
+# print(df)
 
-#print(df.isnull().sum().sum())
+# print(df.isnull().sum().sum())
 
-#print(df.dtypes)
+# print(df.dtypes)
 
-#print(df.isnull().any(1).to_numpy().nonzero())
+# print(df.isnull().any(1).to_numpy().nonzero())
 
-#print(df.loc[2401].isnull())
+# print(df.loc[2401].isnull())
 
 #df.fillna(method='bfill',limit=2, inplace=True)
 
-#print(df.isnull().any(1).to_numpy().nonzero())
+# print(df.isnull().any(1).to_numpy().nonzero())
 
-convert_dic = {'cantidad':int}
+convert_dic = {'cantidad': int}
 
 df = df.astype(convert_dic)
 
-#print(df.dtypes)
+# print(df.dtypes)
 
-print(df['laboratorio_vacuna'].unique())
+# print(df['uso_vacuna'].unique())
 
-print(df['cantidad'][df['laboratorio_vacuna']=='PFIZER'].sum())
+# print(df['cantidad'][df['laboratorio_vacuna'] == 'PFIZER'].sum())
+
 
 def consulta1(lab):
-    return df['cantidad'][df['laboratorio_vacuna']==lab].sum()
+    return df['cantidad'][df['laboratorio_vacuna'] == lab].sum()
+
+
+def consulta2(terr):
+    return df['cantidad'][df['nom_territorio'] == terr].sum()
+
+
+def consulta4(uso):
+    return df['cantidad'][df['uso_vacuna'].str.contains(uso, case=False, na=False, regex=False)].sum()
