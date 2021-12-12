@@ -59,7 +59,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>{{ value }}</h3>
+          <h3>{{ value1 }}</h3>
         </div>
         <div class="w3-clear"></div>
         <!--<h4>1ra consulta</h4>-->
@@ -77,6 +77,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </select>
             se han aplicado en Colombia?
           </div>
+          <div>
+            <input type="submit" value="ir">
+          </div>
       </form>
       </div>
     </div>
@@ -84,30 +87,119 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-blue w3-padding-16">
         <div class="w3-left"><i class="fa fa-history w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>99</h3>
+          <h3>{{ value2 }}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>2da consulta</h4>
+        <!--<h4>2da consulta</h4>-->
+        <form action="{{url_for("show_tables")}}" name="form2" id="form2" method="post">
+          <div class="form-group" >
+            Cuántas vacunas se han aplicado en el territorio 
+            <label for="exampleFormControlSelect1"><!--Example select--></label>
+            <select class="form-control" id="exampleFormControlSelect1" name="terr" style="height: 0.8cm">
+              <option disabled selected value> -- {{ terrV }} -- </option>
+              <option>ANTIOQUIA</option>
+              <option>VALLE_DEL_CAUCA</option>
+              <option>SANTANDER</option>
+              <option>BOYACA</option>
+              <option>META</option>
+              <option>CALDAS</option>
+              <option>CESAR</option>
+              <option>TOLIMA</option>
+              <option>NARIÑO</option>
+              <option>BOGOTA D.C.</option>
+              <option>RISARALDA</option>
+              <option>NORTE DE SANTANDER</option>
+              <option>CORDOBA</option>
+              <option>SUCRE</option>
+              <option>QUINDIO</option>
+              <option>HUILA</option>
+              <option>ATLANTICO</option>
+              <option>CUNDINAMARCA</option>
+              <option>BARRABQUILLA</option>
+              <option>CASANARE</option>
+              <option>CARTAGENA</option>
+              <option>CAUACA</option>
+              <option>MAGDALENA</option>
+              <option>LA_GUAJIRA</option>
+              <option>ARAUCA</option>
+              <option>PUTUMAYO</option>
+              <option>BOLIVAR</option>
+              <option>CHOCO</option>
+              <option>GUAVIARE</option>
+              <option>VICHADA</option>
+              <option>BUENABENTURA</option>
+              <option>SAN ANDRES, PROVIDENCIA Y SANTA CATALINA</option>
+              <option>VAUPES</option>
+              <option>AMAZONAS</option>
+              <option>GUAINIA</option>
+            </select>
+          </div>
+          <div>
+            <input type="submit" value="ir">
+          </div>
+      </form>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-teal w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>23</h3>
+          <h3>{{ value3 }}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>3ra consulta</h4>
+        <!--<h4>3ra consulta</h4>-->
+        <form action="{{url_for("show_tables")}}" name="form3" id="form3" method="post">
+          <div class="form-group" >
+            Cantidad maxima de vacunas asignadas 
+            <label for="exampleFormControlSelect1"><!--Example select--></label>
+            <input type="range" min="0" max="100160" list="tickmarks" name="cant" >
+            
+          </div>
+          <datalist>
+            <option value="0" label="0"></option>
+            <option value="1700" label="1700"></option>
+            <option value="4951" label="4951"></option>
+            <option value="14803" label="14803"></option>
+            <option value="50160" label="50160"></option>
+          </datalist>
+          <div>
+            <input type="submit" value="ir">
+          </div>
+      </form>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-orange w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3>{{ value4 }}</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>4ta consulta</h4>
+        <!--<h4>4ta consulta</h4>-->
+        <form action="{{url_for("show_tables")}}" name="form4" id="form4" method="post">
+          <div class="form-group" >
+            Cuántas vacunas se han aplicado en:
+            <label for="exampleFormControlSelect1"><!--Example select--></label>
+            <select class="form-control" id="exampleFormControlSelect1" name="uso" style="height: 0.8cm">
+              <option disabled selected value> -- {{ usoV }} -- </option>
+              <option>Primeras  dosis</option>
+              <option>Segundas dosis</option>
+              <option>Refuerzos</option>
+              <option>Pilotos</option>
+              <option>Mayores de 60</option>
+              <option>75 a 79 años</option>
+              <option>70 a 79 años</option>
+              <option>18 años o más</option>
+              <option>Etapas Abiertas</option>
+              <option>Talento humano</option>
+              <option>Resolución</option>
+            </select>
+            en Colombia
+          </div>
+          <div>
+            <input type="submit" value="ir">
+          </div>
+      </form>
       </div>
     </div>
   </div>
@@ -210,7 +302,7 @@ function w3_close() {
 }
 
 function myFunction() {
-  document.getElementById('form1').submit();
+  
 }
 </script>
 
